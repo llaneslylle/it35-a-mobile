@@ -3,23 +3,13 @@ import ExploreContainer from '../components/ExploreContainerCopy';
 import './Home.css';
 
 const Home: React.FC = () => {
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
-      </IonContent>
-    </IonPage>
-  );
+ return (
+  <IonPage>
+    <IonContent>
+      <div style={{ color: "white" }}>HOME WORKING</div>
+    </IonContent>
+  </IonPage>
+);
 };
 
 export default Home;
