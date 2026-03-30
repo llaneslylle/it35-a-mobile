@@ -43,77 +43,70 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
   }
 
   return (
-    <>
-      <IonFab slot="fixed" vertical="bottom" horizontal="end">
+  <>
+    <IonFab slot="fixed" vertical="bottom" horizontal="end">
+      <IonFabButton>
+        <IonIcon icon={chevronUpCircle}></IonIcon>
+      </IonFabButton>
+
+      <IonFabList side="top">
         <IonFabButton>
-          <IonIcon icon={chevronUpCircle}></IonIcon>
+          <IonIcon icon={document}></IonIcon>
         </IonFabButton>
+        <IonFabButton>
+          <IonIcon icon={colorPalette}></IonIcon>
+        </IonFabButton>
+        <IonFabButton>
+          <IonIcon icon={globe}></IonIcon>
+        </IonFabButton>
+      </IonFabList>
+    </IonFab>
 
-        <IonFabList side="top">
-          <IonFabButton>
-            <IonIcon icon={document}></IonIcon>
-          </IonFabButton>
-          <IonFabButton>
-            <IonIcon icon={colorPalette}></IonIcon>
-          </IonFabButton>
-          <IonFabButton>
-            <IonIcon icon={globe}></IonIcon>
-          </IonFabButton>
-        </IonFabList>
-      </IonFab>
+    <IonContent className="ion-padding">
+      <IonButton id="open-modal" expand="block">
+        Open
+      </IonButton>
 
-      <IonPage>
+      <p>{message}</p>
+
+      <IonModal
+        ref={modal}
+        trigger="open-modal"
+        onWillDismiss={onWillDismiss}
+      >
         <IonHeader>
           <IonToolbar>
-            <IonTitle>Inline Modal</IonTitle>
+            <IonButtons slot="start">
+              <IonButton onClick={() => modal.current?.dismiss()}>
+                Cancel
+              </IonButton>
+            </IonButtons>
+
+            <IonTitle>Welcome</IonTitle>
+
+            <IonButtons slot="end">
+              <IonButton strong onClick={confirm}>
+                Confirm
+              </IonButton>
+            </IonButtons>
           </IonToolbar>
         </IonHeader>
 
         <IonContent className="ion-padding">
-          <IonButton id="open-modal" expand="block">
-            Open
-          </IonButton>
-
-          <p>{message}</p>
-
-          <IonModal
-            ref={modal}
-            trigger="open-modal"
-            onWillDismiss={onWillDismiss}
-          >
-            <IonHeader>
-              <IonToolbar>
-                <IonButtons slot="start">
-                  <IonButton onClick={() => modal.current?.dismiss()}>
-                    Cancel
-                  </IonButton>
-                </IonButtons>
-
-                <IonTitle>Welcome</IonTitle>
-
-                <IonButtons slot="end">
-                  <IonButton strong onClick={confirm}>
-                    Confirm
-                  </IonButton>
-                </IonButtons>
-              </IonToolbar>
-            </IonHeader>
-
-            <IonContent className="ion-padding">
-              <IonItem>
-                <IonInput
-                  label="Enter your name"
-                  labelPlacement="stacked"
-                  ref={input}
-                  type="text"
-                  placeholder="Your name"
-                />
-              </IonItem>
-            </IonContent>
-          </IonModal>
+          <IonItem>
+            <IonInput
+              label="Enter your name"
+              labelPlacement="stacked"
+              ref={input}
+              type="text"
+              placeholder="Your name"
+            />
+          </IonItem>
         </IonContent>
-      </IonPage>
-    </>
+      </IonModal>
+    </IonContent>
+  </>
+
   );
 };
 
