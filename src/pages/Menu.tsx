@@ -1,11 +1,13 @@
-import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar, } from "@ionic/react"
-import { homeOutline, logOutOutline } from "ionicons/icons"
+import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonTitle, IonToolbar, } from "@ionic/react"
+import { homeOutline, informationCircleOutline, logOutOutline } from "ionicons/icons"
 import { Redirect, Route } from "react-router-dom"
 import Home from "./Home"
+import About from "./about"
 
 const Menu: React.FC = () => {
     const path = [
-        { name: 'Home', url: '/app/home', icon: homeOutline }
+        { name: 'Home', url: '/app/home', icon: homeOutline },
+        { name: 'About', url: '/app/about', icon: informationCircleOutline }
 
     ];
     return (
@@ -40,6 +42,7 @@ const Menu: React.FC = () => {
                 <Route exact path="/app">
                     <Redirect to="/app/home" />
                 </Route>
+                <Route exact path="/app/about" component={About} />
             </IonRouterOutlet>
         </IonPage>
 
