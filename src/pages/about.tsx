@@ -9,7 +9,7 @@ const About: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>About Us</IonTitle>
+          <IonTitle>about Us</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
